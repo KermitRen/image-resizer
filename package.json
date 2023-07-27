@@ -1,0 +1,14 @@
+{
+  "name": "image-resizer",
+  "version": "1.0.0",
+  "description": "Simple app for resizing images",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Frederik Baggesen",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.3.2"
+  }
+}
