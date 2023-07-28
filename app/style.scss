@@ -1,0 +1,53 @@
+@import "reset";
+
+$primary: #998fc7;
+$secondary: #d4c2fc;
+$dark: #28262c;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    border: 0;
+}
+
+#title_bar {
+    background-color: $dark;
+    color: white;
+    width: 100%;
+    height: 4%;
+    -webkit-app-region: drag;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0px 5px;
+}
+
+#title_bar_text {
+    width: 100%;
+    cursor: move;
+}
+
+.title_bar_button {
+    -webkit-app-region: no-drag;
+}
+
+.title_bar_button:hover {
+    cursor: pointer;
+}
+
+#content {
+    background-color: $primary;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96%;
+}
+
+#intro_box {
+    background-color: white;
+    padding: 5%;
+    border-radius: 5%;
+
+}
