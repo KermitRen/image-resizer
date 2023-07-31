@@ -1,14 +1,20 @@
 @import "reset";
+@import url('https://fonts.cdnfonts.com/css/louis-george-cafe');
+@import url('https://fonts.cdnfonts.com/css/geologica?styles=157784,157787');
 
 $primary: #998fc7;
 $secondary: #d4c2fc;
 $dark: #28262c;
+
+$font-mono: Monospace, Helvetica;
+$font-normal: 'Geologica', 'Louis George Café', Helvetica, Arial, sans-serif;
 
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     border: 0;
+    font-family: $font-normal;
 }
 
 #title_bar {
@@ -20,20 +26,37 @@ html, body {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding: 0px 5px;
+    padding-left: 8px;
 }
 
 #title_bar_text {
     width: 100%;
     cursor: move;
+    font-family: $font-normal;
+    font-weight: 200;
 }
 
-.title_bar_button {
+#title_bar .title_bar_button {
     -webkit-app-region: no-drag;
+    padding: 0px 8px;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 28px;
+    font-size: 130%;
 }
 
 .title_bar_button:hover {
     cursor: pointer;
+    background-color: darken($dark, 10%);
+}
+
+#title_bar #minimize_button {
+    line-height: 40px;
+}
+
+#title_bar #close_button {
+    line-height: 30px;
 }
 
 #content {
@@ -46,8 +69,47 @@ html, body {
 }
 
 #intro_box {
+    width: 40%;
+    height: 25%;
+    padding: 5% 0;
     background-color: white;
-    padding: 5%;
-    border-radius: 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 7px 7px darken($primary, 15%);
 
+    i {
+        font-size: 425%;
+        background: -webkit-linear-gradient($secondary, $primary);
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 7%;
+    }
+
+    p {
+        font-size: 110%;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        color: darken($primary, 15%);
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        i {
+            background: -webkit-linear-gradient(darken($secondary,5%), darken($primary,5%));
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 112%;
+            color: darken($primary, 25%);
+        }
+    }
 }

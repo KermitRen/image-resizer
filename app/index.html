@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="renderer.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div id = "title_bar">
         <p id = "title_bar_text">Image Resizer</p>
-        <i class = "title_bar_button">min</i>
-        <i class = "title_bar_button">close</i>
+        <span id = "minimize_button" class = "title_bar_button material-symbols-outlined" onclick="minimizeApp()">horizontal_rule</span>
+        <span id = "close_button" class = "title_bar_button material-symbols-outlined" onclick="closeApp()">close</span>
     </div>
     <div id = "content">
         <div id = "intro_box">
-            <p>Select an Image</p>
+            <i class = "material-symbols-outlined"> add_photo_alternate</i>
+            <p>Select an Image <br> to Resize</p>
         </div>
     </div>
 </body>

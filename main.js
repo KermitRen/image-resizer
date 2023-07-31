@@ -1,6 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+const path = require('path')
 
 const createWindow = () => {
+
+  //Create Window
   const width = 600
   const height = 700
   const win = new BrowserWindow({
@@ -11,21 +14,25 @@ const createWindow = () => {
     minHeight: height,
     maxHeight: height,
     frame: false,
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    contextIsolation: true,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js")
+    }
   })
 
+  //IPC Events
+  ipcMain.on('close', () => win.close())
+  ipcMain.on('minimize', () => win.minimize())
+
+  //Load File
   win.loadFile('app/index.html')
 }
 
 app.whenReady().then(() => {
   createWindow()
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
 })
 
-// Mimic OS specific features
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
   })
