@@ -15,10 +15,28 @@
         <span id = "close_button" class = "title_bar_button material-symbols-outlined" onclick="closeApp()">close</span>
     </div>
     <div id = "content">
-        <div id = "intro_box">
+
+        <div id = "intro_box" class="hidden">
             <i class = "material-symbols-outlined"> add_photo_alternate</i>
             <p>Select an Image <br> to Resize</p>
+            <input id = "image_input" type="file" onchange="selectImage(this)"/>
         </div>
+
+        <div id="form_box" class="">
+            <div id="image_box">
+                <img id="image_display" src="">
+                <p id="file_label">File: <i id="file_name"> Bird.Png </i> </p>
+            </div>
+            <div id = "form_inputs">
+                <p class="input_label"> Width</p>
+                <input type="text">
+                <p class="input_label"> Height</p>
+                <input type="text">
+                <button> RESIZE</button>
+            </div>
+
+        </div>
+
     </div>
 </body>
 </html>
