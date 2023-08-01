@@ -1,10 +1,14 @@
 @import "reset";
-@import url('https://fonts.cdnfonts.com/css/geologica?styles=157784,157787');
+@import url('https://fonts.cdnfonts.com/css/geologica?styles=157791,157784,157789');
 @import url('https://fonts.cdnfonts.com/css/overpass-mono?styles=19454,19455');
 
-$primary: #998fc7;
-$secondary: #d4c2fc;
-$dark: #28262c;
+//$primary: #998fc7;
+//$secondary: #d4c2fc;
+//$dark: #28262c;
+
+$primary: #226f54;
+$secondary: #5cad67;
+$dark: #1e1e24;
 
 $font-mono: 'Overpass Mono', Monospace, Helvetica;
 $font-normal: 'Geologica', Helvetica, Arial, sans-serif;
@@ -15,6 +19,7 @@ html, body {
     height: 100%;
     border: 0;
     font-family: $font-normal;
+    font-weight: 200;
 }
 
 #title_bar {
@@ -33,7 +38,7 @@ html, body {
     width: 100%;
     cursor: move;
     font-family: $font-normal;
-    font-weight: 200;
+    //font-weight: 200;
 }
 
 #title_bar .title_bar_button {
@@ -96,7 +101,7 @@ html, body {
 
     p {
         font-size: 110%;
-        font-weight: 600;
+        font-weight: 500;
         text-align: center;
         text-transform: uppercase;
         color: lighten($primary, 5%);
@@ -136,6 +141,7 @@ html, body {
 }
 
 #form_box {
+    position: relative;
     width: 60%;
     height: 100%;
     display: flex;
@@ -143,6 +149,28 @@ html, body {
     align-items: center;
     justify-content: space-around;
     color: white;
+
+    #back_box {
+        position: absolute;
+        top: 20px;
+        left: -90px;
+        background-color: darken($primary, 6%);
+        border-radius: 50%;
+        width: 40px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            font-size: 180%;
+        }
+
+        &:hover {
+            background-color: darken($primary, 10%);
+            cursor: pointer;
+        }
+    }
 
     #image_box {
         width: 100%;
@@ -194,33 +222,44 @@ html, body {
 
             input {
                 width: 100%;
-                height: 34px;
+                height: 40px;
                 border: none;
                 outline: none;
                 border-radius: 5px;
-                font-size: 115%;
-                padding: 0 5px;
-                line-height: 30px;
-                border: 2px solid $secondary
+                font-size: 120%;
+                font-family: $font-normal;
+                font-weight: 400;
+                padding: 0 10px;
+                line-height: 40px;
+                color: $primary;
+                border: 2px solid $secondary;
+                vertical-align: bottom;
+
+                &::placeholder {
+                    font-weight: 200;
+                }
             }
         }
 
         #resize_button {
             display: block;
             width: 100%;
-            height: 34px;
+            height: 40px;
             border: none;
             border-radius: 5px;
-            font-size: 110%;
+            font-family: $font-normal;
+            font-weight: 200;
+            font-size: 125%;
             text-transform: uppercase;
             background-color: $secondary;
-            color: $dark;
+            background-image: linear-gradient(to bottom right, $secondary, lighten($primary, 10%));
+            color: white;
             margin-top: 25px;
-            box-shadow: 2px 4px darken($primary, 15%);
+            line-height: 40px;
 
             &:hover {
                 cursor: pointer;
-                background-color: darken($secondary, 2%);
+                filter: brightness(94%);
             }
         }
     }

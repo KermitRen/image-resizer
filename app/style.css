@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/geologica?styles=157784,157787");
+@import url("https://fonts.cdnfonts.com/css/geologica?styles=157791,157784,157789");
 @import url("https://fonts.cdnfonts.com/css/overpass-mono?styles=19454,19455");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -30,10 +30,11 @@ html, body {
   height: 100%;
   border: 0;
   font-family: "Geologica", Helvetica, Arial, sans-serif;
+  font-weight: 200;
 }
 
 #title_bar {
-  background-color: #28262c;
+  background-color: #1e1e24;
   color: white;
   width: 100%;
   height: 4%;
@@ -48,7 +49,6 @@ html, body {
   width: 100%;
   cursor: move;
   font-family: "Geologica", Helvetica, Arial, sans-serif;
-  font-weight: 200;
 }
 
 #title_bar .title_bar_button {
@@ -63,7 +63,7 @@ html, body {
 
 .title_bar_button:hover {
   cursor: pointer;
-  background-color: #0f0e11;
+  background-color: #070708;
 }
 
 #title_bar #minimize_button {
@@ -79,7 +79,7 @@ html, body {
 }
 
 #content {
-  background-color: #998fc7;
+  background-color: #226f54;
   color: black;
   display: flex;
   align-items: center;
@@ -98,11 +98,11 @@ html, body {
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
-  box-shadow: 7px 7px #6b5cae;
+  box-shadow: 7px 7px #103428;
 }
 #intro_box i {
   font-size: 425%;
-  background: -webkit-linear-gradient(#d4c2fc, #998fc7);
+  background: -webkit-linear-gradient(#5cad67, #226f54);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -110,10 +110,10 @@ html, body {
 }
 #intro_box p {
   font-size: 110%;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
-  color: #a8a0d0;
+  color: #288363;
 }
 #intro_box #image_input {
   opacity: 0;
@@ -132,17 +132,18 @@ html, body {
   cursor: pointer;
 }
 #intro_box:hover i {
-  background: -webkit-linear-gradient(#c3aafb, #8a7ebf);
+  background: -webkit-linear-gradient(#509f5b, #1c5b45);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #intro_box:hover p {
   font-size: 110%;
-  color: #8a7ebf;
+  color: #1c5b45;
 }
 
 #form_box {
+  position: relative;
   width: 60%;
   height: 100%;
   display: flex;
@@ -150,6 +151,25 @@ html, body {
   align-items: center;
   justify-content: space-around;
   color: white;
+}
+#form_box #back_box {
+  position: absolute;
+  top: 20px;
+  left: -90px;
+  background-color: #1b5842;
+  border-radius: 50%;
+  width: 40px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#form_box #back_box span {
+  font-size: 180%;
+}
+#form_box #back_box:hover {
+  background-color: #164836;
+  cursor: pointer;
 }
 #form_box #image_box {
   width: 100%;
@@ -197,29 +217,42 @@ html, body {
 }
 #form_box #form_inputs .input_field input {
   width: 100%;
-  height: 34px;
+  height: 40px;
   border: none;
   outline: none;
   border-radius: 5px;
-  font-size: 115%;
-  padding: 0 5px;
-  line-height: 30px;
-  border: 2px solid #d4c2fc;
+  font-size: 120%;
+  font-family: "Geologica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  padding: 0 10px;
+  line-height: 40px;
+  color: #226f54;
+  border: 2px solid #5cad67;
+  vertical-align: bottom;
+}
+#form_box #form_inputs .input_field input::-moz-placeholder {
+  font-weight: 200;
+}
+#form_box #form_inputs .input_field input::placeholder {
+  font-weight: 200;
 }
 #form_box #form_inputs #resize_button {
   display: block;
   width: 100%;
-  height: 34px;
+  height: 40px;
   border: none;
   border-radius: 5px;
-  font-size: 110%;
+  font-family: "Geologica", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  font-size: 125%;
   text-transform: uppercase;
-  background-color: #d4c2fc;
-  color: #28262c;
+  background-color: #5cad67;
+  background-image: linear-gradient(to bottom right, #5cad67, #2e9672);
+  color: white;
   margin-top: 25px;
-  box-shadow: 2px 4px #6b5cae;
+  line-height: 40px;
 }
 #form_box #form_inputs #resize_button:hover {
   cursor: pointer;
-  background-color: #cdb8fc;
+  filter: brightness(94%);
 }/*# sourceMappingURL=style.css.map */

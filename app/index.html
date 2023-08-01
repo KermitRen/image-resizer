@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="renderer.js"></script>
@@ -16,13 +17,16 @@
     </div>
     <div id = "content">
 
-        <div id = "intro_box" class="hidden">
+        <div id = "intro_box" class="">
             <i class = "material-symbols-outlined"> add_photo_alternate</i>
             <p>Select an Image <br> to Resize</p>
             <input id = "image_input" type="file" onchange="selectImage(this)"/>
         </div>
 
-        <div id="form_box" class="">
+        <div id="form_box" class="hidden">
+            <div id="back_box" onclick="unselectImage()">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </div>
             <div id="image_box">
                 <img id="image_display" src="">
                 <p id="file_label">File: <i id="file_name"> Bird.Png </i> </p>
@@ -30,13 +34,13 @@
             <div id = "form_inputs">
                 <div class="input_field">
                     <p>Width</p>
-                    <input type="text" size="10">  
+                    <input id="input_width" type="text" maxlength="5" placeholder="1024">  
                 </div>
                 <div class="input_field">
                     <p>Height</p>
-                    <input type="text" size="10">  
+                    <input id="input_height" type="text" maxlength="5" placeholder="512">  
                 </div>
-                <button id="resize_button" type="button"> Resize Image</button>
+                <button id="resize_button" type="button"> Resize</button>
             </div>
 
         </div>

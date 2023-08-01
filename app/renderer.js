@@ -7,6 +7,13 @@ function minimizeApp() {
     electronAPI.minimize()
 }
 
+function unselectImage() {
+    document.getElementById("intro_box").className = ""
+    document.getElementById("form_box").className = "hidden"
+    document.getElementById("image_display").src = ""
+    document.getElementById("image_input").value = ""
+}
+
 function selectImage(input) {
     
     //Error Handling
@@ -22,11 +29,17 @@ function selectImage(input) {
     }
 
     //Update UI
+    const objectURL = URL.createObjectURL(file)
     document.getElementById("intro_box").className = "hidden"
     document.getElementById("form_box").className = ""
-    document.getElementById("image_display").src = URL.createObjectURL(file)
+    document.getElementById("image_display").src = objectURL
     document.getElementById("file_name").innerText = file.name
-    console.log(file)
+    let img = new Image()
+    img.src = objectURL
+    img.onload = () => {
+        document.getElementById("input_width").placeholder = img.width
+        document.getElementById("input_height").placeholder = img.height
+    }
 }
 
 function isImage(file) {
