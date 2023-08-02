@@ -1,3 +1,4 @@
+var aspect_ratio = 1
 
 function closeApp() {
     electronAPI.close()
@@ -12,6 +13,42 @@ function unselectImage() {
     document.getElementById("form_box").className = "hidden"
     document.getElementById("image_display").src = ""
     document.getElementById("image_input").value = ""
+    document.getElementById("input_width").value = ""
+    document.getElementById("input_height").value = ""
+    document.getElementById("input_ar").checked = true
+}
+
+function validateNumber(input, type) {
+    var newValue = input.value.replace(/\D/g,'')
+    newValue = newValue.replace(/^0+/, '');
+    input.value = newValue
+
+    if(keepAR()) {
+
+        if(newValue == "") {
+            document.getElementById("input_height").value = ""
+            document.getElementById("input_width").value = ""
+            return
+        }
+
+        if(type == "width") {
+            document.getElementById("input_height").value = Math.floor(parseInt(newValue)/aspect_ratio)
+        } else if(type == "height") {
+            document.getElementById("input_width").value = Math.floor(parseInt(newValue)*aspect_ratio)
+        }
+    }
+}
+
+function updatedARSetting() {
+    if (keepAR()) {
+        const widthInput = document.getElementById("input_width")
+        const heightInput = document.getElementById("input_height")
+        if(widthInput.value == "") {
+            heightInput.value = ""
+        } else {
+            heightInput.value = Math.floor(parseInt(widthInput.value)/aspect_ratio)
+        }
+    }
 }
 
 function selectImage(input) {
@@ -39,10 +76,15 @@ function selectImage(input) {
     img.onload = () => {
         document.getElementById("input_width").placeholder = img.width
         document.getElementById("input_height").placeholder = img.height
+        aspect_ratio = img.width/img.height
     }
 }
 
 function isImage(file) {
     const validTypes = ["image/gif", "image/png", "image/jpeg"]
     return validTypes.includes(file.type)
+}
+
+function keepAR() {
+    return document.getElementById("input_ar").checked
 }

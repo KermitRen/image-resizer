@@ -34,11 +34,15 @@
             <div id = "form_inputs">
                 <div class="input_field">
                     <p>Width</p>
-                    <input id="input_width" type="text" maxlength="5" placeholder="1024">  
+                    <input id="input_width" type="text" maxlength="5" placeholder="1024" oninput="validateNumber(this, 'width')">  
                 </div>
                 <div class="input_field">
                     <p>Height</p>
-                    <input id="input_height" type="text" maxlength="5" placeholder="512">  
+                    <input id="input_height" type="text" maxlength="5" placeholder="512" oninput="validateNumber(this, 'height')">  
+                </div>
+                <div class="input_field">
+                    <p>Keep Aspect Ratio</p>
+                    <input id="input_ar" type="checkbox" checked="true" onclick="updatedARSetting()">  
                 </div>
                 <button id="resize_button" type="button"> Resize</button>
             </div>

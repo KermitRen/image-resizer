@@ -17,6 +17,11 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
 article, aside, details, figcaption, figure,
@@ -166,6 +171,7 @@ html, body {
 }
 #form_box #back_box span {
   font-size: 180%;
+  cursor: pointer;
 }
 #form_box #back_box:hover {
   background-color: #164836;
@@ -201,8 +207,8 @@ html, body {
 }
 #form_box #form_inputs {
   width: 100%;
-  height: 42%;
-  padding: 5% 0;
+  height: 46%;
+  padding: 2% 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -215,13 +221,14 @@ html, body {
   font-size: 115%;
   margin-bottom: 5px;
 }
-#form_box #form_inputs .input_field input {
+#form_box #form_inputs .input_field input[type=text] {
   width: 100%;
   height: 40px;
   border: none;
   outline: none;
   border-radius: 5px;
   font-size: 120%;
+  cursor: text;
   font-family: "Geologica", Helvetica, Arial, sans-serif;
   font-weight: 400;
   padding: 0 10px;
@@ -230,11 +237,26 @@ html, body {
   border: 2px solid #5cad67;
   vertical-align: bottom;
 }
-#form_box #form_inputs .input_field input::-moz-placeholder {
+#form_box #form_inputs .input_field input[type=text]::-moz-placeholder {
   font-weight: 200;
 }
-#form_box #form_inputs .input_field input::placeholder {
+#form_box #form_inputs .input_field input[type=text]::placeholder {
   font-weight: 200;
+}
+#form_box #form_inputs .input_field input[type=checkbox] {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: white;
+  border: 3px solid white;
+  outline: 1px solid #5cad67;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  aspect-ratio: 1/1;
+}
+#form_box #form_inputs .input_field input[type=checkbox]:checked {
+  background-color: #5cad67;
 }
 #form_box #form_inputs #resize_button {
   display: block;
@@ -249,7 +271,7 @@ html, body {
   background-color: #5cad67;
   background-image: linear-gradient(to bottom right, #5cad67, #2e9672);
   color: white;
-  margin-top: 25px;
+  margin-top: 15px;
   line-height: 40px;
 }
 #form_box #form_inputs #resize_button:hover {
