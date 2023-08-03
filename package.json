@@ -10,5 +10,9 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^25.3.2"
+  },
+  "dependencies": {
+    "resize-img": "^2.0.0",
+    "toastify-js": "^1.12.0"
   }
 }

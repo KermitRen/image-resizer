@@ -9,6 +9,7 @@
 $primary: #226f54;
 $secondary: #5cad67;
 $dark: #1e1e24;
+$error: #b91212;
 
 $font-mono: 'Overpass Mono', Monospace, Helvetica;
 $font-normal: 'Geologica', Helvetica, Arial, sans-serif;
@@ -38,7 +39,6 @@ html, body {
     width: 100%;
     cursor: move;
     font-family: $font-normal;
-    //font-weight: 200;
 }
 
 #title_bar .title_bar_button {
@@ -75,6 +75,33 @@ html, body {
     align-items: center;
     justify-content: center;
     height: 96%;
+}
+
+@keyframes toast-intro {
+    from{
+            opacity: 0%;
+            margin-top: 10px;
+        }
+    to{
+        opacity: 100%;
+        margin-top: 30px;
+    }
+  }
+
+.toast {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    font-size: 110%;
+    width: 60%;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, $error, lighten($error, 10%));
+    color: white;
+    z-index: 5;
+    animation-name: toast-intro;
+    animation-duration: 0.4s;
 }
 
 #intro_box {
